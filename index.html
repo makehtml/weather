@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Weather</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="page">
+  <main class="weather">
+    <header class="weather__header">
+      <h1 class="weather__title">Weather</h1>
+
+      <div class="weather__actions">
+        <button class="theme-switch" type="button" aria-label="Переключить тему" data-theme-toggle>
+          <span class="theme-switch__track" aria-hidden="true">
+            <span class="theme-switch__thumb" aria-hidden="true"></span>
+          </span>
+        </button>
+
+        <a class="weather__icon-link" href="#" aria-label="GitHub">
+          <svg class="weather__icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34c-.45-1.15-1.11-1.46-1.11-1.46c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.9 1.53 2.36 1.09 2.94.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.56-1.11-4.56-4.95c0-1.09.39-1.99 1.03-2.69c-.1-.25-.45-1.28.1-2.66c0 0 .84-.27 2.75 1.03a9.5 9.5 0 0 1 5 0c1.9-1.3 2.74-1.03 2.74-1.03c.55 1.38.2 2.41.1 2.66c.64.7 1.03 1.6 1.03 2.69c0 3.85-2.35 4.7-4.59 4.95c.36.31.69.92.69 1.86v2.76c0 .26.18.57.69.48A10 10 0 0 0 12 2Z">
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <section class="search" aria-label="Поиск города">
+      <form class="search__form" action="#" autocomplete="off" data-search-form>
+        <label class="search__field">
+          <span class="search__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M10 2a8 8 0 1 0 5.29 14l4.7 4.7a1 1 0 0 0 1.42-1.42l-4.7-4.7A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12a6 6 0 0 1 0-12Z">
+            </svg>
+          </span>
+
+          <input class="search__input" type="search" name="q" placeholder="paris" aria-label="City">
+        </label>
+
+        <button class="search__button" type="submit" aria-label="Поиск">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M12 2a1 1 0 0 1 1 1v7.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L11 10.59V3a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v2h12v-2a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z">
+          </svg>
+        </button>
+      </form>
+    </section>
+
+    <section class="card weather-card" aria-label="Текущая погода">
+      <header class="card__header">
+        <h2 class="card__title">Current Weather</h2>
+
+        <button class="unit-toggle" type="button" aria-label="Единицы измерения" data-unit-toggle>
+          <span class="unit-toggle__label">°C</span>
+          <span class="unit-toggle__track" aria-hidden="true">
+            <span class="unit-toggle__thumb" aria-hidden="true"></span>
+          </span>
+          <span class="unit-toggle__label">°F</span>
+        </button>
+      </header>
+
+      <div class="weather-card__grid">
+        <div class="weather-card__main">
+          <p class="weather-card__city" data-city>Paris</p>
+
+          <div class="weather-card__temp">
+            <div class="weather-card__temp-icon" aria-hidden="true">
+              <svg width="74" height="74" viewBox="0 0 96 96" aria-hidden="true">
+                <path fill="var(--icon-cloud)"
+                  d="M35 69h36a18 18 0 0 0 2-36A23 23 0 0 0 28 36a15 15 0 0 0 7 33Z">
+                <path fill="var(--icon-accent)" d="M46 70l-7 14h11l-6 12l18-20H51l6-6H46Z">
+              </svg>
+            </div>
+
+            <p class="weather-card__temp-value" aria-label="Temperature">
+              <output data-temp>24</output><span class="weather-card__degree" aria-hidden="true">°</span>
+            </p>
+          </div>
+
+          <p class="weather-card__desc" data-desc>thunderstorm</p>
+        </div>
+
+        <div class="weather-card__meta">
+          <div class="meta">
+            <p class="meta__title">
+              Feels like <output data-feels-like>24</output><span aria-hidden="true">°</span>
+            </p>
+
+            <div class="meta__row" aria-label="Min and max temperature">
+              <span class="meta__icon" aria-hidden="true">↑</span>
+              <span class="meta__label" data-max>26°</span>
+              <span class="meta__spacer" aria-hidden="true"></span>
+              <span class="meta__icon" aria-hidden="true">↓</span>
+              <span class="meta__label" data-min>23°</span>
+            </div>
+
+            <dl class="meta__list" aria-label="Weather details">
+              <div class="meta__row">
+                <span class="meta__glyph" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 2s6 6.5 6 11a6 6 0 1 1-12 0C6 8.5 12 2 12 2Z">
+                  </svg>
+                </span>
+                <dt class="meta__name">Humidity</dt>
+                <dd class="meta__value" data-humidity>73%</dd>
+              </div>
+
+              <div class="meta__row">
+                <span class="meta__glyph" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor"
+                      d="M3 12h10a3 3 0 1 0-3-3h2a1 1 0 1 1 0 2H3V9h9a1 1 0 0 0 0-2H8a5 5 0 1 1 5 5H3v-0Zm0 6h13a3 3 0 1 0-3-3h2a1 1 0 1 1 0 2H3v-2Z">
+                  </svg>
+                </span>
+                <dt class="meta__name">Wind</dt>
+                <dd class="meta__value" data-wind>18kph</dd>
+              </div>
+
+              <div class="meta__row">
+                <span class="meta__glyph" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor"
+                      d="M12 2a7 7 0 0 1 7 7v5a7 7 0 0 1-14 0V9a7 7 0 0 1 7-7Zm0 2a5 5 0 0 0-5 5v5a5 5 0 0 0 10 0V9a5 5 0 0 0-5-5Zm-1 4h2v7h-2V8Z">
+                  </svg>
+                </span>
+                <dt class="meta__name">Pressure</dt>
+                <dd class="meta__value" data-pressure>1014hPa</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card forecast" aria-label="Прогноз на неделю">
+      <header class="card__header">
+        <h2 class="card__title">Extended Forecast</h2>
+      </header>
+
+      <div class="forecast__grid" data-forecast>
+        <article class="forecast-day">
+          <h3 class="forecast-day__name">Sat</h3>
+          <div class="forecast-day__icon" aria-hidden="true">
+            <svg width="46" height="46" viewBox="0 0 96 96" aria-hidden="true">
+              <path fill="var(--icon-cloud)"
+                d="M35 60h36a18 18 0 0 0 2-36A23 23 0 0 0 28 27a15 15 0 0 0 7 33Z">
+              <path fill="var(--icon-rain)"
+                d="M33 70l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Z">
+            </svg>
+          </div>
+          <p class="forecast-day__desc">Rain</p>
+          <p class="forecast-day__range"><span>24°</span>/<span class="forecast-day__muted">21°</span></p>
+        </article>
+
+        <article class="forecast-day">
+          <h3 class="forecast-day__name">Sun</h3>
+          <div class="forecast-day__icon" aria-hidden="true">
+            <svg width="46" height="46" viewBox="0 0 96 96" aria-hidden="true">
+              <path fill="var(--icon-cloud)"
+                d="M35 60h36a18 18 0 0 0 2-36A23 23 0 0 0 28 27a15 15 0 0 0 7 33Z">
+              <path fill="var(--icon-rain)"
+                d="M33 70l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Z">
+            </svg>
+          </div>
+          <p class="forecast-day__desc">Rain</p>
+          <p class="forecast-day__range"><span>29°</span>/<span class="forecast-day__muted">20°</span></p>
+        </article>
+
+        <article class="forecast-day">
+          <h3 class="forecast-day__name">Mon</h3>
+          <div class="forecast-day__icon" aria-hidden="true">
+            <svg width="46" height="46" viewBox="0 0 96 96" aria-hidden="true">
+              <path fill="var(--icon-cloud)"
+                d="M35 60h36a18 18 0 0 0 2-36A23 23 0 0 0 28 27a15 15 0 0 0 7 33Z">
+              <path fill="var(--icon-rain)"
+                d="M33 70l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Z">
+            </svg>
+          </div>
+          <p class="forecast-day__desc">Rain</p>
+          <p class="forecast-day__range"><span>30°</span>/<span class="forecast-day__muted">21°</span></p>
+        </article>
+
+        <article class="forecast-day">
+          <h3 class="forecast-day__name">Tue</h3>
+          <div class="forecast-day__icon" aria-hidden="true">
+            <svg width="46" height="46" viewBox="0 0 96 96" aria-hidden="true">
+              <path fill="var(--icon-cloud)"
+                d="M35 60h36a18 18 0 0 0 2-36A23 23 0 0 0 28 27a15 15 0 0 0 7 33Z">
+              <path fill="var(--icon-rain)"
+                d="M33 70l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Z">
+            </svg>
+          </div>
+          <p class="forecast-day__desc">Rain</p>
+          <p class="forecast-day__range"><span>26°</span>/<span class="forecast-day__muted">19°</span></p>
+        </article>
+
+        <article class="forecast-day">
+          <h3 class="forecast-day__name">Wed</h3>
+          <div class="forecast-day__icon" aria-hidden="true">
+            <svg width="46" height="46" viewBox="0 0 96 96" aria-hidden="true">
+              <path fill="var(--icon-cloud)"
+                d="M35 60h36a18 18 0 0 0 2-36A23 23 0 0 0 28 27a15 15 0 0 0 7 33Z">
+              <path fill="var(--icon-rain)"
+                d="M33 70l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Z">
+            </svg>
+          </div>
+          <p class="forecast-day__desc">Rain</p>
+          <p class="forecast-day__range"><span>26°</span>/<span class="forecast-day__muted">19°</span></p>
+        </article>
+
+        <article class="forecast-day">
+          <h3 class="forecast-day__name">Thu</h3>
+          <div class="forecast-day__icon" aria-hidden="true">
+            <svg width="46" height="46" viewBox="0 0 96 96" aria-hidden="true">
+              <path fill="var(--icon-cloud)"
+                d="M35 62h36a18 18 0 0 0 2-36A23 23 0 0 0 28 29a15 15 0 0 0 7 33Z">
+            </svg>
+          </div>
+          <p class="forecast-day__desc">Clouds</p>
+          <p class="forecast-day__range"><span>28°</span>/<span class="forecast-day__muted">19°</span></p>
+        </article>
+
+        <article class="forecast-day">
+          <h3 class="forecast-day__name">Fri</h3>
+          <div class="forecast-day__icon" aria-hidden="true">
+            <svg width="46" height="46" viewBox="0 0 96 96" aria-hidden="true">
+              <path fill="var(--icon-cloud)"
+                d="M35 60h36a18 18 0 0 0 2-36A23 23 0 0 0 28 27a15 15 0 0 0 7 33Z">
+              <path fill="var(--icon-rain)"
+                d="M33 70l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Zm18 0l-4 10h6l4-10h-6Z">
+            </svg>
+          </div>
+          <p class="forecast-day__desc">Rain</p>
+          <p class="forecast-day__range"><span>28°</span>/<span class="forecast-day__muted">20°</span></p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="weather__footer">
+      Developed by <a class="weather__footer-link" href="#">hoki4</a>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
